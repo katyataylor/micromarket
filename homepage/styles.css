@@ -118,13 +118,13 @@ nav {
 
 .nav-links li:hover {
   color: var(--brandGold);
-} */
+} 
 
 .contact-button {
   background: transparent;
   border: 1px solid var(--brandSlate);
   color: var(--brandSlate);
-  padding: 8px 18px;
+  padding: 8px 16px;
   border-radius: 6px;
   font-family: var(--fh);
   font-weight: 500;
@@ -135,6 +135,7 @@ nav {
 .contact-button:hover {
   background-color: var(--brandSlate);
   color: var(--textWhite);
+  opacity: 60%;
 }
 
 .menu-toggle {
