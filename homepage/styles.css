@@ -592,6 +592,13 @@ footer {
   color: var(--brandLightSlate);
 }
 
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  gap: 12px;
+}
+
 /* Container alignment for social nodes if text matches icons */
 .footer-top img:not([alt*="logo"]) {
   height: 20px;
@@ -616,7 +623,7 @@ footer hr {
   display: flex;
   list-style: none;
   gap: 30px;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
