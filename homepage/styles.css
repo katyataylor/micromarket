@@ -111,20 +111,6 @@ nav {
   color: var(--brandGold);
 }
 
-/* Hover expand line effect */
-.nav-links li::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--brandGold);
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-
 .nav-links li:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
