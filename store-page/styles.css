@@ -73,12 +73,13 @@ img {
    2. NAVIGATION
    ========================================================================== */
 nav {
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  background-color: rgba(244, 243, 240, 0.6); /* 60% transparent */
+  padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
+  /* backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);   Not sure about the blur*/
 }
 
 .nav-content {
@@ -91,13 +92,26 @@ nav {
 }
 
 .nav-content img {
-  height: 40px;
+  height: 45px;
 }
 
+.nav-content img:hover {
+  transform: scale(105%);
+  opacity: 80%;
+}
+
+.nav-content:hover {
+    transform: none;
+}
+
+/* This container must stay visible on desktop */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 30px;
+  opacity: 1;           /* Forces visibility on desktop */
+  visibility: visible;   /* Forces visibility on desktop */
+  transform: none;       /* Resets any mobile offsets */
 }
 
 .nav-links ul {
@@ -113,7 +127,7 @@ nav {
   opacity: 80%;
   font-weight: 500;
   cursor: pointer;
-  transition: color 0.2s ease;
+  /* transition: color 0.2s ease; */
 }
 
 .nav-links li:hover {
