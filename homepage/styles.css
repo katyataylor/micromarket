@@ -231,6 +231,7 @@ nav {
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  opacity: 90%;
 }
 
 .hero-bg {
@@ -241,15 +242,21 @@ nav {
   height: 100%;
   background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
   z-index: 2;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);  /*Safari blur support*/
 }
 
 .hero-content {
   position: relative;
+  display: flex;
+  justify-content: center;
   z-index: 3;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);  /*Safari blur support*/
 }
 
 .hero-text {
