@@ -56,15 +56,17 @@ img {
 }
 
 /* ==========================================
-   2. NAVIGATION BAR
+   2. NAVIGATION BAR (DESKTOP & BASE)
    ========================================== */
 nav {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.6); /* 60% transparent */
   padding: 15px 0;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .nav-content {
@@ -80,10 +82,14 @@ nav {
   height: 45px;
 }
 
+/* This container must stay visible on desktop */
 .nav-right {
   display: flex;
   align-items: center;
   gap: 30px;
+  opacity: 1;           /* Forces visibility on desktop */
+  visibility: visible;   /* Forces visibility on desktop */
+  transform: none;       /* Resets any mobile offsets */
 }
 
 .nav-links ul {
@@ -105,6 +111,29 @@ nav {
   color: var(--brandGold);
 }
 
+/* Hover expand line effect */
+.nav-links li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--brandGold);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav-links li:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.nav-links li:hover {
+  color: var(--brandGold);
+} */
+
 .contact-button {
   background: transparent;
   border: 1px solid var(--brandSlate);
@@ -121,6 +150,81 @@ nav {
   background-color: var(--brandSlate);
   color: var(--textWhite);
 }
+
+.menu-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  color: var(--brandSlate);
+  cursor: pointer;
+  padding: 5px;
+  z-index: 100;
+}
+
+/* ==========================================
+   8. MOBILE RESPONSIVE MEDIA QUERY
+   ========================================== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Show hamburger only on mobile screen widths */
+  }
+
+  /* Re-defining nav-right specifically for mobile view dropdown */
+  .nav-content .nav-right {
+    display: flex;
+    position: absolute;
+    top: 76px; 
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* More solid on mobile for text readability */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 30px;
+    border-bottom: 2px solid var(--brandSand);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    z-index: 99;
+    
+    /* Hidden by default on mobile screens until toggle script activates it */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .nav-links li {
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  /* Reset hover line animation for touch screens so it doesn't look buggy */
+  .nav-links li::after {
+    display: none;
+  }
+
+  .contact-button {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+
+  /* This active helper class is what your JS toggles */
+  .nav-content .nav-right.is-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+  }
+}
+
 
 /* ==========================================
    3. HERO SECTION
