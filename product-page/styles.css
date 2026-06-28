@@ -110,6 +110,12 @@ img {
   text-transform: capitalize;
 }
 
+.l-subtext {
+  font-family: var(--fb);
+  font-size: 18px;
+  font-weight: 500;
+}
+
 /* ==========================================
    2. NAVIGATION BAR (DESKTOP & BASE)
    ========================================== */
