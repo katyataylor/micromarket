@@ -64,6 +64,21 @@ h3{
   line-height: 1.6;
 }
 
+h6 {
+  font-family: var(--fb);
+  color: rgba(145, 172, 182, 1);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: var(--fh);
+  font-size: 16px;
+  font-weight: 100;
+}
+
 img {
   max-width: 100%;
   height: auto;
